@@ -35,3 +35,20 @@ Conforme as diretrizes da atividade, declaramos o uso da ferramenta Gemini (LLM)
 Análise: Auxílio na extração e correlação dos 5 requisitos lógicos a partir do código legado.
 
 Refatoração: Apoio na transição da arquitetura de console para a estrutura de Controllers REST no padrão Spring Boot, gerando o código boilerplate de mapeamento de endpoints.
+
+Testar o Fluxo Principal (Simulação do Cliente):
+Utilize uma ferramenta como o Postman ou o Insomnia para simular as requisições HTTP e testar as cinco funcionalidades integradas.
+
+Passo 1 (Cadastrar Cliente): Envie uma requisição POST para http://localhost:8080/api/banco/clientes com um corpo JSON.
+
+Exemplo de Body: {"id": 1, "nome": "João", "idade": 30, "email": "joao@email.com", "idContaCorrente": 1, "status": "INATIVO"}
+
+Passo 2 (Ativar Cliente): Envie uma requisição PUT para http://localhost:8080/api/banco/clientes/1/ativar. O servidor invocará a regra de negócio e retornará o sucesso da operação.
+
+Passo 3 (Cadastrar Conta): Envie uma requisição POST para http://localhost:8080/api/banco/contas com um corpo JSON.
+
+Exemplo de Body: {"id": 1, "saldo": 500.0, "status": true}
+
+Passo 4 (Transferir Valores): Envie uma requisição POST para http://localhost:8080/api/banco/transferencia?idOrigem=1&idDestino=2&valor=50.0. Lembre-se de criar uma segunda conta previamente para servir de destino.
+
+Passo 5 (Consultar Conta): Envie uma requisição GET para http://localhost:8080/api/banco/contas/1 para validar se o saldo foi deduzido corretamente.
