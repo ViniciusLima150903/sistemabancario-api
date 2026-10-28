@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "8f78c456-caea-4222-acb1-44e86a254c6f",
+		"name": "api sistema bancario",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22919124"
+	},
+	"item": [
+		{
+			"name": "Cadastrar Cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 1,\r\n  \"nome\": \"Vinicius\",\r\n  \"idade\": 25,\r\n  \"email\": \"vinicius@email.com\",\r\n  \"idContaCorrente\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/banco/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"banco",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ativacao de conta por ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/banco/clientes/1/ativar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"banco",
+						"clientes",
+						"1",
+						"ativar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar conta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 2,\r\n  \"saldo\": 200.0,\r\n  \"ativa\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/banco/contas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"banco",
+						"contas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Testar transferencia",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/banco/transferencia?idOrigem=1&idDestino=2&valor=150.0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"banco",
+						"transferencia"
+					],
+					"query": [
+						{
+							"key": "idOrigem",
+							"value": "1"
+						},
+						{
+							"key": "idDestino",
+							"value": "2"
+						},
+						{
+							"key": "valor",
+							"value": "150.0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar conta por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/banco/contas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"banco",
+						"contas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
